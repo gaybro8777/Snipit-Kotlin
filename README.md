@@ -1,4 +1,4 @@
-# Snipit-Kotlin
+# Snipit (now with Kotlin!)
 
 Snipit allows you to capture and save interesting sections from any source of information. Be it textbooks, journals, computer screens, photographs, flyers, writings on a whiteboard, etc.
 
