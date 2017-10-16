@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import com.om.snipit.dagger.HomeModule
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class LauncherActivity : AppCompatActivity() {
 
   val Activity.app: SnipitApp
     get() = application as SnipitApp
@@ -22,6 +22,16 @@ class MainActivity : AppCompatActivity() {
 
     component.inject(this)
 
+    if (prefs.getBoolean(USER_LOGGED_IN, false)) {
+//      startActivity(Intent(this, BooksActivity::class.java))
+    } else {
+//      startActivity(Intent(this, LoginActivity::class.java))
+    }
 
+  }
+
+  override fun onResume() {
+    super.onResume()
+    finish()
   }
 }
