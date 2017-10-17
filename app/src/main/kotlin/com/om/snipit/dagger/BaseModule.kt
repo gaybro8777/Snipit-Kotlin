@@ -1,15 +1,19 @@
 package com.om.snipit.dagger
 
 import android.content.Context
-import com.om.snipit.BaseActivity
 import com.om.snipit.PREFS
+import com.om.snipit.database.DBHelper
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
 @Module
-class BaseModule(val activity: BaseActivity) {
+class BaseModule(val context: Context) {
   @Provides
   @Singleton
-  fun providesSharedPrefs() = activity.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+  fun providesSharedPrefs() = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+
+  @Provides
+  @Singleton
+  fun providesDBHelper() = DBHelper(context)
 }

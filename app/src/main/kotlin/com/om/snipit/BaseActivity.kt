@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.om.snipit.dagger.BaseModule
+import com.om.snipit.database.DBHelper
 import javax.inject.Inject
 
 val Activity.app: SnipitApp
@@ -14,6 +15,7 @@ open class BaseActivity : AppCompatActivity() {
   private val component by lazy { app.component.plus(BaseModule(this)) }
 
   @Inject lateinit var prefs: SharedPreferences
+  @Inject lateinit var dbHelper: DBHelper
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
