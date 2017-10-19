@@ -7,6 +7,7 @@ buildscript {
     timber_ver = "4.5.1"
     anko_ver = "0.10.0"
     appcompat_ver = "26.0.0-alpha1"
+    googlePlayServicesVersion = "11.0.4"
   }
 
   repositories {

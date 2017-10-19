@@ -9,9 +9,9 @@ class LauncherActivity : BaseActivity() {
     super.onCreate(savedInstanceState)
 
     if (!prefs.getBoolean(USER_LOGGED_IN, false)) {
-      startActivity(Intent(this, BooksActivity::class.java))
+      startActivity(Intent(this, LoginActivity::class.java))
     } else {
-//      startActivity(Intent(this, LoginActivity::class.java))
+      startActivity(Intent(this, BooksActivity::class.java))
     }
   }
 
