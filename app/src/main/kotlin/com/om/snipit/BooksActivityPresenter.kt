@@ -9,34 +9,35 @@ import org.jetbrains.anko.db.select
 import org.jetbrains.anko.doAsync
 
 class BooksActivityPresenter {
-  fun getBooks(view: BooksActivityView, dbHelper: DBHelper) = dbHelper.doAsync {
-    bg {
-      val allBooks = ArrayList<Book>()
+  fun getBooks(view: BooksActivityView, dbHelper: DBHelper) {
+    dbHelper.doAsync {
+      bg {
+        val allBooks = ArrayList<Book>()
 
-      dbHelper.use {
-        select(DBHelper.bookTableName).parseList(object : MapRowParser<List<Book>> {
+        dbHelper.use {
+          select(DBHelper.bookTableName).parseList(object : MapRowParser<List<Book>> {
 
-          override fun parseRow(columns: Map<String, Any?>): ArrayList<Book> {
+            override fun parseRow(columns: Map<String, Any?>): ArrayList<Book> {
 
-            val id = columns.getValue("id") as Int
-            val title = columns.getValue("title") as String
-            val author = columns.getValue("author") as String
-            val image_path = columns.getValue("image_path") as String
-            val date_added = columns.getValue("date_added") as String
-            val color_code = columns.getValue("color_code") as Int
-            val order = columns.getValue("order") as Int
+              val _id = columns.getValue("_id") as Long
+              val title = columns.getValue("title") as String
+              val author = columns.getValue("author") as String
+              val image_path = columns.getValue("image_path") as String
+              val date_added = columns.getValue("date_added") as String
+              val color_code = columns.getValue("color_code") as Long
+              val order = columns.getValue("list_order") as Long
 
-            val book = Book(id, title, author, image_path, date_added, color_code, order)
+              val book = Book(_id, title, author, image_path, date_added, color_code, order)
 
-            allBooks.add(book)
+              allBooks.add(book)
 
-            return allBooks
-          }
-        })
+              return allBooks
+            }
+          })
+
+          view.displayBooks(allBooks)
+        }
       }
-
-      view.displayBooks(allBooks)
-
     }
   }
 
@@ -56,6 +57,5 @@ class BooksActivityPresenter {
 
   interface BooksActivityView {
     fun displayBooks(books: ArrayList<Book>)
-
   }
 }

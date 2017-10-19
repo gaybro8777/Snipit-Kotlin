@@ -13,7 +13,7 @@ class DBHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "snipit_db") {
 
   override fun onCreate(db: SQLiteDatabase) {
     db.createTable(bookTableName, true,
-        "id" to INTEGER + PRIMARY_KEY + UNIQUE,
+        "_id" to INTEGER + PRIMARY_KEY + UNIQUE,
         "title" to TEXT,
         "author" to TEXT,
         "image_path" to TEXT,
@@ -23,7 +23,7 @@ class DBHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "snipit_db") {
     )
 
     db.createTable(snippetTableName, true,
-        "id" to INTEGER + PRIMARY_KEY + UNIQUE,
+        "_id" to INTEGER + PRIMARY_KEY + UNIQUE,
         "name" to TEXT,
         "page_number" to INTEGER,
         "image_path" to TEXT,

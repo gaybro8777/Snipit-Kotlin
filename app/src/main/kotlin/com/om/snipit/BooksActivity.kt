@@ -2,7 +2,7 @@ package com.om.snipit
 
 import android.os.Bundle
 import com.om.snipit.models.Book
-import timber.log.Timber
+import kotlinx.android.synthetic.main.activity_books.*
 
 class BooksActivity : BaseActivity(), BooksActivityPresenter.BooksActivityView {
 
@@ -21,6 +21,6 @@ class BooksActivity : BaseActivity(), BooksActivityPresenter.BooksActivityView {
   }
 
   override fun displayBooks(books: ArrayList<Book>) {
-    Timber.d("List of all books is : ${books.size}")
+    textView.text = "List of all books is : ${books.size}"
   }
 }
