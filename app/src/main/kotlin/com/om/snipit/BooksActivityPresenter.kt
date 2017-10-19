@@ -58,3 +58,4 @@ class BooksActivityPresenter {
     fun displayBooks(books: ArrayList<Book>)
 
   }
+}
