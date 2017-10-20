@@ -1,7 +1,10 @@
-package com.om.snipit
+package com.om.snipit.landing
 
 import android.content.Intent
 import android.os.Bundle
+import com.om.snipit.base.BaseActivity
+import com.om.snipit.base.USER_LOGGED_IN
+import com.om.snipit.books.BooksActivity
 
 class LauncherActivity : BaseActivity() {
 

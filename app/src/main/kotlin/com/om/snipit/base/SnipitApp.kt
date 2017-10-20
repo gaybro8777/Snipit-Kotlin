@@ -1,4 +1,4 @@
-package com.om.snipit
+package com.om.snipit.base
 
 import android.app.Application
 import com.om.snipit.dagger.AppComponent

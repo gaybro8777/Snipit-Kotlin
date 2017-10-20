@@ -1,3 +1,8 @@
 <resources>
   <string name="app_name">Snipit</string>
+
+  <string name="OK">OK</string>
+  <string name="no_internet_connection">Please check your Internet connection and try again</string>
+  <string name="logging_in_dialog_message">Logging in…</string>
+
 </resources>

@@ -1,7 +1,7 @@
 package com.om.snipit.dagger
 
 import android.content.Context
-import com.om.snipit.PREFS
+import com.om.snipit.base.PREFS
 import com.om.snipit.database.DBHelper
 import dagger.Module
 import dagger.Provides

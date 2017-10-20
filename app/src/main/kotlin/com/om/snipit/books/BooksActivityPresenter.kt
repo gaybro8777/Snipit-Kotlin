@@ -1,4 +1,4 @@
-package com.om.snipit
+package com.om.snipit.books
 
 import com.om.snipit.database.DBHelper
 import com.om.snipit.models.Book

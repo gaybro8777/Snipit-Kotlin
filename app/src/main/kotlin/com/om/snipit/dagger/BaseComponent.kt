@@ -1,6 +1,6 @@
 package com.om.snipit.dagger
 
-import com.om.snipit.BaseActivity
+import com.om.snipit.base.BaseActivity
 import dagger.Subcomponent
 import javax.inject.Singleton
 
