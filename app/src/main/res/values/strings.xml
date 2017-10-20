@@ -4,5 +4,6 @@
   <string name="OK">OK</string>
   <string name="no_internet_connection">Please check your Internet connection and try again</string>
   <string name="logging_in_dialog_message">Logging in…</string>
+  <string name="empty_books_layout_hint">Books you add appear here</string>
 
 </resources>
