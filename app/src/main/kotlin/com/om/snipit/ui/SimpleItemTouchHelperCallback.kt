@@ -40,10 +40,10 @@ class SimpleItemTouchHelperCallback(
     mAdapter.onItemDismiss(viewHolder.adapterPosition)
   }
 
-  override fun onSelectedChanged(viewHolder: RecyclerView.ViewHolder, actionState: Int) {
+  override fun onSelectedChanged(viewHolder: RecyclerView.ViewHolder?, actionState: Int) {
     if (actionState != ItemTouchHelper.ACTION_STATE_IDLE) {
-      val itemViewHolder = viewHolder as ItemTouchHelperViewHolder
-      itemViewHolder.onItemSelected()
+      val itemViewHolder = viewHolder as ItemTouchHelperViewHolder?
+      itemViewHolder!!.onItemSelected()
     }
 
     super.onSelectedChanged(viewHolder, actionState)

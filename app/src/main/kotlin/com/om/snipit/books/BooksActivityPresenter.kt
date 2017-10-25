@@ -7,6 +7,7 @@ import org.jetbrains.anko.db.MapRowParser
 import org.jetbrains.anko.db.insert
 import org.jetbrains.anko.db.select
 import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 
 class BooksActivityPresenter {
   fun getBooks(view: BooksActivityView, dbHelper: DBHelper) {
@@ -34,8 +35,10 @@ class BooksActivityPresenter {
               return allBooks
             }
           })
-
-          view.displayBooks(allBooks)
+          
+          uiThread {
+            view.displayBooks(allBooks)
+          }
         }
       }
     }

@@ -17,10 +17,10 @@ class BooksActivity : BaseActivity(), BooksActivityPresenter.BooksActivityView {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_books)
 
-    presenter.insertBook(
-        Book(title = "Book 1", author = "Author 1", image_path = "testing 123",
-            date_added = "24 December, 2017", color_code = 2, list_order = 2)
-        , dbHelper)
+//    presenter.insertBook(
+//        Book(title = "Book 1", author = "Author 1", image_path = "testing 123",
+//            date_added = "24 December, 2017", color_code = 2, list_order = 2)
+//        , dbHelper)
 
     presenter.getBooks(this, dbHelper)
   }
