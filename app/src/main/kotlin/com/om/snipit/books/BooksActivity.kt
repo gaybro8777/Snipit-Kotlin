@@ -1,9 +1,13 @@
 package com.om.snipit.books
 
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.helper.ItemTouchHelper
 import com.om.snipit.R
 import com.om.snipit.base.BaseActivity
 import com.om.snipit.models.Book
+import com.om.snipit.ui.SimpleItemTouchHelperCallback
+import kotlinx.android.synthetic.main.activity_books.*
 
 class BooksActivity : BaseActivity(), BooksActivityPresenter.BooksActivityView {
 
@@ -22,6 +26,14 @@ class BooksActivity : BaseActivity(), BooksActivityPresenter.BooksActivityView {
   }
 
   override fun displayBooks(books: ArrayList<Book>) {
+    val adapter = BooksRecyclerAdapter(books)
 
+    booksRecyclerView.setHasFixedSize(true)
+    booksRecyclerView.adapter = adapter
+    booksRecyclerView.layoutManager = LinearLayoutManager(this)
+
+    val callback = SimpleItemTouchHelperCallback(adapter)
+    val itemTouchHelper = ItemTouchHelper(callback)
+    itemTouchHelper.attachToRecyclerView(booksRecyclerView)
   }
 }
