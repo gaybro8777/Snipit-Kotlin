@@ -1,7 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
 
 repositories {
   mavenCentral()
@@ -13,7 +12,7 @@ android {
   buildToolsVersion "26.0.2"
   defaultConfig {
     applicationId "com.om.snipit"
-    minSdkVersion 16
+    minSdkVersion 19
     targetSdkVersion 26
     versionCode 1
     versionName "1.0"
@@ -39,19 +38,19 @@ android {
 }
 
 dependencies {
-  compile fileTree(dir: 'libs', include: ['*.jar'])
   kapt "com.google.dagger:dagger-compiler:$dagger_ver"
-  compile "com.google.dagger:dagger:$dagger_ver"
-  compile "com.google.android.gms:play-services-auth:$googlePlayServices_ver"
-  compile 'com.android.support.constraint:constraint-layout:1.0.2'
-  compile "com.android.support:recyclerview-v7:$appcompat_ver"
-  compile "com.android.support:appcompat-v7:$appcompat_ver"
-  compile "com.android.support:cardview-v7:$appcompat_ver"
-  compile "com.android.support:design:$appcompat_ver"
-  compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_ver"
-  compile "me.grantland:autofittextview:$autofittextview_ver"
-  compile "com.jakewharton.timber:timber:$timber_ver"
-  compile "org.jetbrains.anko:anko:$anko_ver"
-  compile 'com.github.nisrulz:recyclerviewhelper:26.0.0'
+  implementation "com.google.android.gms:play-services-auth:$googlePlayServices_ver"
+  implementation "com.google.dagger:dagger:$dagger_ver"
 
+  implementation "android.arch.persistence.room:runtime:$room_ver"
+  annotationProcessor "android.arch.persistence.room:compiler:$room_ver"
+
+  implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+  implementation "com.android.support:recyclerview-v7:$appcompat_ver"
+  implementation "com.android.support:appcompat-v7:$appcompat_ver"
+  implementation "com.android.support:cardview-v7:$appcompat_ver"
+  implementation "com.android.support:design:$appcompat_ver"
+
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_ver"
+  implementation "com.jakewharton.timber:timber:$timber_ver"
 }

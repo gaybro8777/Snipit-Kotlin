@@ -16,13 +16,16 @@
 
     <include
         layout="@layout/toolbar"
+        android:id="@+id/toolbarLayout"
         />
 
     <android.support.v7.widget.RecyclerView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/booksRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbarLayout"
+        />
 
     <RelativeLayout
         android:id="@+id/emptyListLayout"
@@ -40,7 +43,7 @@
           android:src="@drawable/book_outline"
           />
 
-      <me.grantland.widget.AutofitTextView
+      <TextView
           android:id="@+id/emptyLayoutMessageTV"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
@@ -53,20 +56,19 @@
 
     </RelativeLayout>
 
-    <!--<android.support.design.widget.FloatingActionButton-->
-        <!--android:id="@+id/createNewBookBTN"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_alignParentEnd="true"-->
-        <!--android:layout_alignParentRight="true"-->
-        <!--android:layout_margin="@dimen/fab_buttons_margins"-->
-        <!--android:src="@drawable/ic_add_white"-->
-        <!--app:backgroundTint="@color/green"-->
-        <!--app:borderWidth="0dp"-->
-        <!--app:elevation="6dp"-->
-        <!--app:fabSize="normal"-->
-        <!--/>-->
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/createNewBookBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/fab_buttons_margins"
+        android:src="@drawable/ic_add_white"
+        app:backgroundTint="@color/green"
+        app:borderWidth="0dp"
+        app:elevation="6dp"
+        app:fabSize="normal"
+        />
 
   </RelativeLayout>
 

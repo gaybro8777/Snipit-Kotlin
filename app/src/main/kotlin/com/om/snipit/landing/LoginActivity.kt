@@ -18,7 +18,7 @@ import com.om.snipit.R
 import com.om.snipit.base.*
 import com.om.snipit.books.BooksActivity
 import com.om.snipit.landing.classes.DefaultIndicatorController
-import com.om.snipit.models.User
+import com.om.snipit.database.entities.User
 import kotlinx.android.synthetic.main.activity_login.*
 import timber.log.Timber
 

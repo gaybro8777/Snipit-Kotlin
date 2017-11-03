@@ -2,21 +2,20 @@
 
 buildscript {
   ext {
-    autofittextview_ver = "0.2.1"
     googlePlayServices_ver = "11.4.2"
     appcompat_ver = "26.1.0"
     kotlin_ver = "1.1.51"
     timber_ver = "4.5.1"
-    anko_ver = "0.10.0"
-    dagger_ver = "2.5"
+    anko_ver = "0.10.2"
+    dagger_ver = "2.12"
+    room_ver = "1.0.0-rc1"
   }
 
   repositories {
     jcenter()
-    google()
   }
   dependencies {
-    classpath 'com.android.tools.build:gradle:3.0.0-rc2'
+    classpath 'com.android.tools.build:gradle:3.0.0'
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_ver"
 
     // NOTE: Do not place your application dependencies here; they belong

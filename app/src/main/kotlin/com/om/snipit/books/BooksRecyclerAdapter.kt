@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.om.snipit.R
-import com.om.snipit.models.Book
+import com.om.snipit.database.entities.Book
 import com.om.snipit.ui.ItemTouchHelperAdapter
 import com.om.snipit.ui.ItemTouchHelperViewHolder
 import kotlinx.android.synthetic.main.list_item_book.view.*
