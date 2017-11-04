@@ -1,5 +1,6 @@
 package com.om.snipit.dagger
 
+import android.content.Context
 import com.om.snipit.base.SnipitApp
 import dagger.Module
 import dagger.Provides
@@ -13,5 +14,5 @@ class AppModule(val app: SnipitApp) {
 
   @Provides
   @Singleton
-  fun provideContext() = app.applicationContext
+  fun provideContext(): Context = app.applicationContext
 }
