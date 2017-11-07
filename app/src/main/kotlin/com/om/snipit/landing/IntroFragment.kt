@@ -12,16 +12,16 @@ class IntroFragment : Fragment() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
 
-    if (!arguments.containsKey(LAYOUT_RES_ID)) {
+    if (!arguments?.containsKey(LAYOUT_RES_ID)!!) {
       throw RuntimeException("Fragment must contain a layoutResId argument!")
     }
 
-    layoutResId = arguments.getInt(LAYOUT_RES_ID)
+    layoutResId = arguments?.getInt(LAYOUT_RES_ID)!!
   }
 
-  override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
+  override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
       savedInstanceState: Bundle?): View? =
-      activity.layoutInflater.inflate(layoutResId, container, false)
+      activity?.layoutInflater?.inflate(layoutResId, container, false)
 
   companion object {
 

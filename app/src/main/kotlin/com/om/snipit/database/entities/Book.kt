@@ -7,10 +7,10 @@ import com.om.snipit.base.BOOK_TABLE_NAME
 
 @Entity(tableName = BOOK_TABLE_NAME)
 
-data class Book(@PrimaryKey(autoGenerate = true) val id: Long = -1,
-    @ColumnInfo(name = "title") val title: String = "",
-    @ColumnInfo(name = "author") val author: String = "",
-    @ColumnInfo(name = "image_path") val imagePath: String = "",
-    @ColumnInfo(name = "date_added") val dateAdded: String = "",
-    @ColumnInfo(name = "color_code") val colorCode: Int = 0,
-    @ColumnInfo(name = "list_order") val listOrder: Int = 0)
+data class Book(@PrimaryKey(autoGenerate = true) var id: Long? = null,
+    @ColumnInfo(name = "title") var title: String,
+    @ColumnInfo(name = "author") var author: String,
+    @ColumnInfo(name = "image_path") var imagePath: String,
+    @ColumnInfo(name = "date_added") var dateAdded: String,
+    @ColumnInfo(name = "color_code") var colorCode: Int,
+    @ColumnInfo(name = "list_order") var listOrder: Int)

@@ -10,10 +10,10 @@ import com.om.snipit.database.entities.Snippet
 @Dao
 interface SnippetDao {
   @get:Query("SELECT * FROM $SNIPPET_TABLE_NAME")
-  val all: ArrayList<Snippet>
+  val all: List<Snippet>
 
-  @Query("SELECT * FROM $SNIPPET_TABLE_NAME WHERE id IN (:snippetIds)")
-  fun loadAllByIds(snippetIds: IntArray): ArrayList<Snippet>
+  @Query("SELECT * FROM $SNIPPET_TABLE_NAME WHERE snippetId IN (:snippetIds)")
+  fun loadAllByIds(snippetIds: IntArray): List<Snippet>
 
   @Query("SELECT * FROM $SNIPPET_TABLE_NAME WHERE name LIKE :name LIMIT 1")
   fun findByName(name: String): Snippet

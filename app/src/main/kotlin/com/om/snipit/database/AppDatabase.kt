@@ -7,7 +7,7 @@ import com.om.snipit.database.daos.SnippetDao
 import com.om.snipit.database.entities.Book
 import com.om.snipit.database.entities.Snippet
 
-@Database(entities = arrayOf(Book::class, Snippet::class), version = 1)
+@Database(entities = arrayOf(Book::class, Snippet::class), version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
   abstract fun bookDao(): BookDao
   abstract fun snippetDao(): SnippetDao

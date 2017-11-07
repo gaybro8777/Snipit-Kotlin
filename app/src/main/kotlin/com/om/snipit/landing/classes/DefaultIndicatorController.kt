@@ -52,10 +52,10 @@ class DefaultIndicatorController : IndicatorController {
       val drawableId = if (i == index) R.drawable.indicator_dot_white else R.drawable.indicator_dot_grey
       val drawable = ContextCompat.getDrawable(mContext!!, drawableId)
       if (selectedDotColor != DEFAULT_COLOR && i == index) {
-        drawable.mutate().setColorFilter(selectedDotColor, PorterDuff.Mode.SRC_IN)
+        drawable?.mutate()?.setColorFilter(selectedDotColor, PorterDuff.Mode.SRC_IN)
       }
       if (unselectedDotColor != DEFAULT_COLOR && i != index) {
-        drawable.mutate().setColorFilter(unselectedDotColor, PorterDuff.Mode.SRC_IN)
+        drawable?.mutate()?.setColorFilter(unselectedDotColor, PorterDuff.Mode.SRC_IN)
       }
       mDots!![i].setImageDrawable(drawable)
     }

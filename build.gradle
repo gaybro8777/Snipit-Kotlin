@@ -3,12 +3,12 @@
 buildscript {
   ext {
     googlePlayServices_ver = "11.4.2"
-    appcompat_ver = "26.1.0"
+    appcompat_ver = "27.0.0"
     kotlin_ver = "1.1.51"
     timber_ver = "4.5.1"
     anko_ver = "0.10.2"
     dagger_ver = "2.12"
-    room_ver = "1.0.0-rc1"
+    room_ver = "1.0.0"
   }
 
   repositories {
