@@ -1,17 +1,21 @@
 package com.om.snipit.books
 
+import android.support.v4.view.MotionEventCompat
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import com.om.snipit.R
 import com.om.snipit.books.touchhelper.ItemTouchHelperAdapter
 import com.om.snipit.books.touchhelper.ItemTouchHelperViewHolder
+import com.om.snipit.books.touchhelper.OnStartDragListener
 import com.om.snipit.database.entities.Book
 import kotlinx.android.synthetic.main.list_item_book.view.*
 
 class BooksRecyclerAdapter(
-    private val books: MutableList<Book>) : RecyclerView.Adapter<BooksRecyclerAdapter.ItemViewHolder>(), ItemTouchHelperAdapter {
+    private val books: MutableList<Book>, private val mDragStartListener: OnStartDragListener
+) : RecyclerView.Adapter<BooksRecyclerAdapter.ItemViewHolder>(), ItemTouchHelperAdapter {
 
   override fun getItemCount(): Int = books.size
 
@@ -22,6 +26,13 @@ class BooksRecyclerAdapter(
 
   override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
     holder.itemView.bookTitleTV.text = books[position].title
+
+    holder.itemView.bookThumbIMG.setOnTouchListener({ v, event ->
+      if (MotionEventCompat.getActionMasked(event) == MotionEvent.ACTION_DOWN) {
+        mDragStartListener.onStartDrag(holder)
+      }
+      false
+    })
   }
 
   override fun onItemMove(fromPosition: Int, toPosition: Int) {
