@@ -5,11 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.om.snipit.R
+import com.om.snipit.books.touchhelper.ItemTouchHelperAdapter
+import com.om.snipit.books.touchhelper.ItemTouchHelperViewHolder
 import com.om.snipit.database.entities.Book
-import com.om.snipit.ui.ItemTouchHelperAdapter
-import com.om.snipit.ui.ItemTouchHelperViewHolder
 import kotlinx.android.synthetic.main.list_item_book.view.*
-import timber.log.Timber
 
 class BooksRecyclerAdapter(
     private val books: MutableList<Book>) : RecyclerView.Adapter<BooksRecyclerAdapter.ItemViewHolder>(), ItemTouchHelperAdapter {
@@ -23,27 +22,23 @@ class BooksRecyclerAdapter(
 
   override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
     holder.itemView.bookTitleTV.text = books[position].title
-    Timber.d("onBindViewHolder")
   }
 
   override fun onItemMove(fromPosition: Int, toPosition: Int) {
     val previousBook = books.removeAt(fromPosition)
     books.add(if (toPosition > fromPosition) toPosition - 1 else toPosition, previousBook)
     notifyItemMoved(fromPosition, toPosition)
-    Timber.d("onItemMove")
   }
 
   override fun onItemDismiss(position: Int) {
     books.removeAt(position)
     notifyItemRemoved(position)
-    Timber.d("onItemDismiss")
   }
 
   class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(
       itemView), ItemTouchHelperViewHolder {
 
     override fun onItemSelected() {
-      Timber.d("Item clicked!")
     }
 
     override fun onItemClear() {

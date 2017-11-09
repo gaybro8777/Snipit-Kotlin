@@ -6,11 +6,10 @@ import android.support.v7.widget.helper.ItemTouchHelper
 import com.om.snipit.R
 import com.om.snipit.base.BaseActivity
 import com.om.snipit.base.DEFAULT_ACTIVITY_TOOLBAR_COLORS
+import com.om.snipit.books.touchhelper.SimpleItemTouchHelperCallback
 import com.om.snipit.database.entities.Book
-import com.om.snipit.ui.SimpleItemTouchHelperCallback
 import kotlinx.android.synthetic.main.activity_books.*
 import kotlinx.android.synthetic.main.toolbar.*
-import timber.log.Timber
 
 class BooksActivity : BaseActivity(), BooksActivityPresenter.BooksActivityView {
   private val presenter = BooksActivityPresenter()
@@ -32,15 +31,11 @@ class BooksActivity : BaseActivity(), BooksActivityPresenter.BooksActivityView {
   override fun displayBooks(books: MutableList<Book>) {
     val adapter = BooksRecyclerAdapter(books)
 
-    Timber.d("Setting up the recyclerview now")
-
     booksRecyclerView.setHasFixedSize(true)
     booksRecyclerView.adapter = adapter
     booksRecyclerView.layoutManager = LinearLayoutManager(this)
 
-    Timber.d("Setting up the touch helper")
-
-    val callback = SimpleItemTouchHelperCallback(adapter)
+    val callback: ItemTouchHelper.Callback = SimpleItemTouchHelperCallback(adapter)
     val itemTouchHelper = ItemTouchHelper(callback)
     itemTouchHelper.attachToRecyclerView(booksRecyclerView)
   }

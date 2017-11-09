@@ -1,4 +1,4 @@
-package com.om.snipit.ui
+package com.om.snipit.books.touchhelper
 
 import android.support.v7.widget.RecyclerView
 
