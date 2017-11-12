@@ -13,10 +13,10 @@ import com.om.snipit.books.touchhelper.ItemTouchHelperViewHolder
 import com.om.snipit.books.touchhelper.OnStartDragListener
 import com.om.snipit.database.entities.Book
 import kotlinx.android.synthetic.main.list_item_book.view.*
-import timber.log.Timber
 
 class BooksRecyclerAdapter(
-    private val books: MutableList<Book>, private val mDragStartListener: OnStartDragListener) : RecyclerView.Adapter<BooksRecyclerAdapter.ItemViewHolder>(), ItemTouchHelperAdapter {
+    private val books: MutableList<Book>,
+    private val mDragStartListener: OnStartDragListener) : RecyclerView.Adapter<BooksRecyclerAdapter.ItemViewHolder>(), ItemTouchHelperAdapter {
 
   override fun getItemCount(): Int = books.size
 
@@ -29,7 +29,6 @@ class BooksRecyclerAdapter(
     holder.itemView.bookTitleTV.text = books[position].title
 
     holder.itemView.list_item_book.setOnTouchListener({ v, event ->
-      Timber.d("Testing")
       if (getActionMasked(event) == MotionEvent.ACTION_DOWN) {
         mDragStartListener.onStartDrag(holder)
       }
@@ -57,7 +56,7 @@ class BooksRecyclerAdapter(
     }
 
     override fun onItemClear() {
-      itemView.setBackgroundColor(0)
+      itemView.setBackgroundResource(R.drawable.listview_items_shape)
     }
   }
 }

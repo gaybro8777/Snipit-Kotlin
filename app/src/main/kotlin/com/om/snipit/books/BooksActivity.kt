@@ -24,12 +24,12 @@ class BooksActivity : BaseActivity(), BooksActivityPresenter.BooksActivityView, 
 
     setupToolbar(toolbar, null, false, DEFAULT_ACTIVITY_TOOLBAR_COLORS)
 
-//    presenter.insertBook(
-//        Book(title = "Book 1", author = "Author 1", imagePath = "testing 123",
-//            dateAdded = "24 December, 2017", colorCode = 2, listOrder = 2)
-//        , dbHelper)
-//
-    presenter.getBooks(this, dbHelper)
+    presenter.insertBook(
+        Book(title = "Book 1", author = "Author 1", imagePath = "testing 123",
+            dateAdded = "24 December, 2017", colorCode = 2, listOrder = 2)
+        , database)
+
+    presenter.getBooks(this, database)
   }
 
   override fun displayBooks(books: MutableList<Book>) {

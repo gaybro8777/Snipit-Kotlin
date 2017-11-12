@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 open class BaseActivity : AppCompatActivity() {
   @Inject lateinit var prefs: SharedPreferences
-  @Inject lateinit var dbHelper: AppDatabase
+  @Inject lateinit var database: AppDatabase
 
   private val Activity.app: SnipitApp
     get() = application as SnipitApp
