@@ -3,7 +3,9 @@
 buildscript {
   ext {
     googlePlayServices_ver = "11.6.0"
+    retrofit_version = "2.3.0"
     appcompat_ver = "27.0.1"
+    okhttpversion = "3.4.1"
     rxkotlin_ver = "2.1.0"
     kotlin_ver = "1.1.51"
     timber_ver = "4.5.1"
